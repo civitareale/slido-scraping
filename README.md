@@ -4,7 +4,7 @@ Este programa é uma ferramenta de web scraping que extrai perguntas de uma pág
 
 Até onde apurei o Slido não fornece APIs, por esse motivo a técnica de scraping, mesmo o site não contendo IDs bem definidos no HTML.
 
-<h1>COMO UTILZAR<h1>
+<h1>COMO UTILZAR</h1>
 
 1. Instale as dependências necessárias.
 pip install -r requirements.txt
