@@ -6,17 +6,17 @@ Até onde apurei o Slido não fornece APIs, por esse motivo a técnica de scrapi
 
 <h1>COMO UTILZAR</h1>
 
-1. Instale as dependências necessárias.
-pip install -r requirements.txt
+1. Instale as dependências necessárias:<br>
+<code>pip install -r requirements.txt</code>
 
-2. Clone o repositório para o seu computador local:
-https://github.com/civitareale/slido-scraping
+2. Clone o repositório para o seu computador local:<br>
+<code>git clone https://github.com/civitareale/slido-scraping</code>
 
-3. Navegue até o diretório do projeto:
-cd slido-scraping
+3. Navegue até o diretório do projeto:<br>
+<code>cd slido-scraping<code>
 
-4. Execute o programa com o comando Python. Você precisará fornecer a URL da página do Slido como um argumento:
-python main.py https://app.sli.do/event/xyz123
+4. Execute o programa com o comando Python. Você precisará fornecer a URL da página do Slido como um argumento:<br>
+<code>python main.py https://app.sli.do/event/xyz123</code>
 
 Substitua "https://app.sli.do/event/xyz123", sem aspas, pela URL da página do Slido que você deseja consultar.
 Essa opção imprimirá na tela uma tabela com Nome de quem fez a pergunta, Quantidade de Likes e Perunta:
