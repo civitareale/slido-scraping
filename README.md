@@ -13,7 +13,7 @@ Até onde apurei o Slido não fornece APIs, por esse motivo a técnica de scrapi
 <code>git clone https://github.com/civitareale/slido-scraping</code>
 
 3. Navegue até o diretório do projeto:<br>
-<code>cd slido-scraping<code>
+<code>cd slido-scraping<c/ode>
 
 4. Execute o programa com o comando Python. Você precisará fornecer a URL da página do Slido como um argumento:<br>
 <code>python main.py https://app.sli.do/event/xyz123</code>
