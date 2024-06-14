@@ -34,7 +34,7 @@ Essa opção imprimirá na tela uma tabela com Nome de quem fez a pergunta, Quan
 </table>
 
 <i>Você pode também inserir um segundo argumento especificando a criação de um arquivo no formato csv, json ou txt.
-Nesse caso será gerado da pasta atual um arquivo de nome "output" com a respectiva extensão.
-python main.py https://app.sli.do/event/xyz123 csv</i>
+Nesse caso será gerado da pasta atual um arquivo de nome "output" com a respectiva extensão.</i><br>
+<code>python main.py https://app.sli.do/event/xyz123 csv</code>
 
 <b>Esse programa é apenas para fins educacionais e de aprendizado. Certifique-se de respeitar os termos de serviço do Slido ao usar este programa.</b>
