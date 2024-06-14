@@ -1,11 +1,12 @@
-import re
-import sys
 import time
 from bs4 import BeautifulSoup
 import pandas as pd
 from selenium import webdriver
-import argparse
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
+# scraping do slido
 def scrape_slido(url, output_option=''):
     # Configuração do webdriver
     options = webdriver.ChromeOptions()
@@ -14,12 +15,19 @@ def scrape_slido(url, output_option=''):
     driver = webdriver.Chrome(options=options)
     driver.get(url)
     time.sleep(10) # GAMBI!!! Melhorar isso
+
     page = driver.execute_script('return document.body.innerHTML')
     soup = BeautifulSoup(''.join(page), 'html.parser')
 
     questions = []
     votes = []
     authors = []
+
+    # Valida dados carregados
+    if not soup.find('div', class_='card question-item'):
+        print('Parece não haver perguntas na página carregada. Verifique a URL e tente novamente.')
+        return
+    
 
     # class_='card question-item' é o mais próximo que encontrei para mapear os cards que contém as perguntas
     for question in soup.find_all('div', class_='card question-item'):
@@ -44,32 +52,4 @@ def scrape_slido(url, output_option=''):
     }
 
     df = pd.DataFrame(data)
-
-    #Exibe o DataFrame
-    # print(df.to_csv)
-    # df.to_csv('output.csv')
-    # df.to_json('output.json', orient='records')
-    if output_option == 'table':
-        df.to_string('output.txt')
-    elif output_option == 'json':
-        df.to_json('output.json', orient='records')
-    elif output_option == 'csv':
-        df.to_csv('output.csv', index=False)
-    else:
-        print(df)
-
-# Processa argumento com a URL
-if __name__ == "__main__":
-    if len(sys.argv) < 2:
-        print("Adicionar uma URL do slido como parametro.")
-        print("""
-        Exemplo:python slido-scraping.py https://app.sli.do/event/abc123 [output_option]
-        output_option: table, json, csv
-              """)
-    elif len(sys.argv) < 3:
-        url = sys.argv[1]
-        scrape_slido(url)
-    else:
-        url = sys.argv[1]
-        output_option = sys.argv[2] #if len(sys.argv) >= 3 else 'csv'
-        scrape_slido(url, output_option)
+    return df
