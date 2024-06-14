@@ -18,13 +18,23 @@ Até onde apurei o Slido não fornece APIs, por esse motivo a técnica de scrapi
 4. Execute o programa com o comando Python. Você precisará fornecer a URL da página do Slido como um argumento:<br>
 <code>python main.py https://app.sli.do/event/xyz123</code>
 
-Substitua "https://app.sli.do/event/xyz123", sem aspas, pela URL da página do Slido que você deseja consultar.
-Essa opção imprimirá na tela uma tabela com Nome de quem fez a pergunta, Quantidade de Likes e Perunta:
-|    QUEM    | VOTOS  |         PERGUNTA                 |
-| Anonymous  |   4    | O que é Python?                  |
+<i>Substitua "https://app.sli.do/event/xyz123", sem aspas, pela URL da página do Slido que você deseja consultar.
+Essa opção imprimirá na tela uma tabela com Nome de quem fez a pergunta, Quantidade de Likes e Perunta:</i><br>
+<table>
+  <tr>
+    <th>QUEM</th>
+    <th>VOTOS</th>
+    <th>PERGUNTA</th>
+  </tr>
+  <tr>
+    <td>Anonymous</td>
+    <td>4</td>
+    <td>O que é Python?</td>
+  </tr>
+</table>
 
-Você pode também inserir um segundo argumento especificando a criação de um arquivo no formato csv, json ou txt.
+<i>Você pode também inserir um segundo argumento especificando a criação de um arquivo no formato csv, json ou txt.
 Nesse caso será gerado da pasta atual um arquivo de nome "output" com a respectiva extensão.
-python main.py https://app.sli.do/event/xyz123 csv
+python main.py https://app.sli.do/event/xyz123 csv</i>
 
-Esse programa é apenas para fins educacionais e de aprendizado. Certifique-se de respeitar os termos de serviço do Slido ao usar este programa.
+<b>Esse programa é apenas para fins educacionais e de aprendizado. Certifique-se de respeitar os termos de serviço do Slido ao usar este programa.</b>
