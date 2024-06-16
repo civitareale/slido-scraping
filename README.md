@@ -16,10 +16,10 @@ Até onde apurei o Slido não fornece APIs, por esse motivo a técnica de scrapi
 <code>cd slido-scraping</code>
 
 4. Execute o programa com o comando Python. Você precisará fornecer a URL da página do Slido como um argumento:<br>
-<code>python main.py https://app.sli.do/event/xyz123</code>
+<code>python main.py --url https://app.sli.do/event/xyz123</code>
 
 <i>Substitua "https://app.sli.do/event/xyz123", sem aspas, pela URL da página do Slido que você deseja consultar.
-Essa opção imprimirá na tela uma tabela com Nome de quem fez a pergunta, Quantidade de Likes e Perunta:</i><br>
+Essa opção gera uma saída na tela com a tabela (exemplo):</i><br>
 <table>
   <tr>
     <th>QUEM</th>
@@ -33,8 +33,8 @@ Essa opção imprimirá na tela uma tabela com Nome de quem fez a pergunta, Quan
   </tr>
 </table>
 
-<i>Você pode também inserir um segundo argumento especificando a criação de um arquivo no formato csv, json ou txt.
-Nesse caso será gerado da pasta atual um arquivo de nome "output" com a respectiva extensão.</i><br>
-<code>python main.py https://app.sli.do/event/xyz123 csv</code>
+<i>Você pode também inserir outros argumentos especificando o nome do arquivo de saída e um formato csv, json ou txt.<br>
+Nesse caso não será gerado saída na tela, somente no arquivo, na pasta /output de execução desse programa.<br>Exemplo:</i><br>
+<code>python main.py --url https://app.sli.do/event/xyz123 -f csv -o file_name</code>
 
 <b>Esse programa é apenas para fins educacionais e de aprendizado. Certifique-se de respeitar os termos de serviço do Slido ao usar este programa.</b>

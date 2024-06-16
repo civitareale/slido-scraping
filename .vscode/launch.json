@@ -11,7 +11,9 @@
             "program": "${file}",
             "console": "integratedTerminal",
             "args": [
+                "--url",
                 "https://app.sli.do/event/ivzddRovkqFLX5tYhoBSDe/live/questions",
+                "-f",
                 "csv"
             ]
         }
