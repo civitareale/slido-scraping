@@ -7,35 +7,36 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 
-# scraping do slido
+# scraping slido questions page
 def scrape_slido(url):
-    print('Iniciando scraping...')
-    # Configuração do webdriver
+    """"
+    Function to scrape questions from a Slido page.
+    Parameters: url (str) - The URL of the Slido page to scrape.
+    When a valid URL, it returns a DataFrame with the questions, authors and votes(likes).
+    """
+    
+    print('Starting scraping... This may take a few seconds.')
     options = webdriver.ChromeOptions()
-    options.add_argument('--headless')  # para abrir o navegador em segundo plano
-    # Adiciona um User-Agent
-    # options.add_argument('user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537')
-
+    options.add_argument('--headless')  #Opening the web page in selenium without opening the browser
+    
     driver = webdriver.Chrome(options=options)
     driver.get(url)
-    time.sleep(10) # GAMBI!!! Melhorar isso
+    time.sleep(10) # Crappy code! Necessary to give some time to async load. Need to make it better!
 
     page = driver.execute_script('return document.body.innerHTML')
     soup = BeautifulSoup(''.join(page), 'html.parser')
-    # Conta o número de tags
-    # print(f'Número de tags HTML encontradas: {len(soup.find_all())}')
 
     questions = []
     votes = []
     authors = []
 
-    # Valida dados carregados
+    # Validdating if there are questions in the page
+    # class_='card question-item' is the closest I found to map the cards that contains the questions
     if not soup.find('div', class_='card question-item'):
-        print('Parece não haver perguntas na página carregada. Verifique a URL e tente novamente.')
+        print('It seems there are no questions in the loaded page. Check the URL and try again.')
         exit(1)
     
-    # class_='card question-item' é o mais próximo que encontrei para mapear os cards que contém as perguntas
-    print(f'Número de perguntas encontradas: {len(soup.find_all("div", class_="card question-item"))}')
+    print(f'Total number of questions found: {len(soup.find_all("div", class_="card question-item"))}')
     for question in soup.find_all('div', class_='card question-item'):
         author_div = question.find('div', {'data-testid': 'question-author'})
         author_name = author_div.text if author_div else None
@@ -50,11 +51,11 @@ def scrape_slido(url):
         votes.append(vote_count)
         authors.append(author_name)
 
-    # Cria o DataFrame
+    # Create a DataFrame with the data
     data = {
-        'QUEM': authors,
-        'VOTOS': votes,
-        'PERGUNTA': questions
+        'WHO': authors,
+        'LIKES': votes,
+        'QUESTION': questions
     }
     df = pd.DataFrame(data)
     return df

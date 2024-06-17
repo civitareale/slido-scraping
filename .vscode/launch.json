@@ -14,7 +14,9 @@
                 "--url",
                 "https://app.sli.do/event/ivzddRovkqFLX5tYhoBSDe/live/questions",
                 "-f",
-                "csv"
+                "csv",
+                "-o",
+                "file-name"                
             ]
         }
     ]
