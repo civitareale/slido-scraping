@@ -1,0 +1,10 @@
+""""[tasklist]
+#To Do List:
+- [ ] Organize the code in functions.py
+- [ ] Deal with the async load in a better way (remove the time.sleep(10) in scraping.py)
+- [ ] Add a progress bar to the scraping function
+- [ ] Add a logging system to the code
+- [ ] Re assess requirements.txt
+- [ ] Add error handling in general. Try, except, raise, etc.
+- [ ] Add multi-language messages to the code
+"""
